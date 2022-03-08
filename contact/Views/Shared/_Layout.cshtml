@@ -1,33 +1,182 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" media="screen and (max-width : 800px)" href="~/Content/indexrwd.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: rgb(231, 169, 169);
+            /* background-color: rgb(255, 148, 148); */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            text-align: center;
+            font-family: "微軟正黑體";
+            letter-spacing: 2pt;
+        }
+
+
+        nav > .logo {
+            flex: none;
+            padding: 10px;
+            width: 100px;
+            background: #000;
+            color: aliceblue;
+            border: 1px solid seashell;
+        }
+
+        nav > .menu {
+            flex: auto;
+            padding: 10px;
+            background: #000;
+            color: aliceblue;
+        }
+
+        nav > .user {
+            flex: none;
+            padding: 10px;
+            width: 150px;
+            background: #000;
+            color: aliceblue;
+        }
+
+        main {
+            /* background-color: rgb(255, 148, 148); */
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .item {
+            padding: 20px;
+            width: 250px;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .block {
+            position: flex;
+            top: 20px;
+            left: 150px;
+        }
+
+        nav ul li {
+            padding: 10px;
+            list-style-type: none;
+            background-color: brown;
+            opacity: 0.5;
+            color: #fff;
+        }
+
+            nav ul li a:link {
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            nav ul li a:link {
+                text-decoration: none;
+                color: #ffffff;
+            }
+        footer {
+            background-color: pink;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+    </style>
+    <script>
+
+        function toggleMenu(number) {
+            var menu = document.getElementById("memu-" + number);
+            menu.classList.toggle("hide");
+        }
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <nav class="mynav navbar-fixed-top">
+        <div class="logo">logo</div>
+        <!-- 關係管理nav -->
+        <div class="menu" onmouseover="toggleMenu(1);">關係管理</div>
+        <ul id="memu-1" class="hide">
+            <li>@Html.ActionLink("廠商", "About", "Home")</li>
+            <li><a href="/Home/Contact" style="color:#fff">會員</a></li>
+        </ul>
+        <!-- 訂單管理nav -->
+        <div class="menu" onmouseover="toggleMenu(2);">訂單管理</div>
+        <ul id="memu-2" class="hide">
+            <li>未出貨</li>
+            <li>已結案</li>
+        </ul>
+        <div class="menu" onmouseover="toggleMenu(3);">換貨管理</div>
+        <ul id="memu-3" class="hide">
+            <li>....</li>
+            <li>....</li>
+        </ul>
+        <div class="menu" onmouseover="toggleMenu(4);">出貨管理</div>
+        <ul id="memu-4" class="hide">
+            <li>未出貨</li>
+            <li>....</li>
+        </ul>
+        <div class="menu" onmouseover="toggleMenu(5);">商品管理</div>
+        <ul id="memu-5" class="hide">
+            <li>新增</li>
+            <li>刪除</li>
+            <li>修改</li>
+        </ul>
+
+        <div class="menu" onmouseover="toggleMenu(6);">活動管理</div>
+        <ul id="memu-6" class="hide">
+            <li>所有活動</li>
+            <li>新增活動</li>
+        </ul>
+
+        <div class="user">user你好</div>
+
+    </nav>
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+                        <li>@Html.ActionLink("關於", "About", "Home")</li>
+                        <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+        </div>*@
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -36,8 +185,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
 </body>
 </html>

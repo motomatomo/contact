@@ -177,10 +177,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\indexrwd.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\未命名-3-01.svg" />
+    <Content Include="Images\未命名-3-02.svg" />
+    <Content Include="Images\未命名-3-03.svg" />
+    <Content Include="Images\未命名-3-04.svg" />
+    <Content Include="Images\未命名-3-05.svg" />
+    <Content Include="Images\未命名-3-06.svg" />
     <Content Include="Models\DBEye.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DBEye.Context.cs</LastGenOutput>
@@ -226,9 +233,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
